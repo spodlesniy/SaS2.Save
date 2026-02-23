@@ -81,6 +81,7 @@
         public void Write(BinaryWriter writer)
         {
             writer.Write(beasts.Length);
+
             for (int i = 0; i < beasts.Length; i++)
             {
                 beasts[i].Write(writer);

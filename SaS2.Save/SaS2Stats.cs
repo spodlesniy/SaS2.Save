@@ -258,5 +258,15 @@ namespace SaS2.Save
                 writer.Write(classUnlocks[l]);
             }
         }
+
+        public static string GetTimePlayedAsString(double timePlayed)
+        {
+            int seconds = (int)((long)timePlayed % 60);
+            int hoursAndMinutes = (int)((long)timePlayed / 60);
+            int hours = hoursAndMinutes / 60;
+            int minutes = hoursAndMinutes % 60;
+
+            return $"{hours}:{minutes:D2}:{seconds:D2}";
+        }
     }
 }
