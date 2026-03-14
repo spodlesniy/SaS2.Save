@@ -1,4 +1,7 @@
 ﻿using SaS2.Save.Data;
+using static SaS2.Save.SaS2LootCategory;
+using static SaS2.Save.SaS2LootCategoryCharm;
+using static SaS2.Save.SaS2LootCategoryConsumable;
 
 namespace SaS2.Save
 {
@@ -70,6 +73,42 @@ namespace SaS2.Save
             writer.Write(stockPiled);
 
             isNew = false;
+        }
+
+        private string ScalingToString(float scaling, int scaleCount)
+        {
+            if (scaleCount > 1)
+            {
+                scaling *= (float)scaleCount;
+            }
+
+            float baseValue = 0.7f;
+            if (scaling >= 6f * baseValue)
+            {
+                return "S";
+            }
+            if (scaling >= 5f * baseValue)
+            {
+                return "A";
+            }
+            if (scaling >= 4f * baseValue)
+            {
+                return "B";
+            }
+            if (scaling >= 3f * baseValue)
+            {
+                return "C";
+            }
+            if (scaling >= 2f * baseValue)
+            {
+                return "D";
+            }
+            if (scaling > 0f)
+            {
+                return "E";
+            }
+
+            return "-";
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using static SaS2.Save.SaS2LootField;
+﻿using static SaS2.Save.SaS2LootCategoryArmor;
+using static SaS2.Save.SaS2LootField;
 
 namespace SaS2.Save
 {
@@ -338,6 +339,11 @@ namespace SaS2.Save
         public override int GetFlagCount()
         {
             return (int)SaS2LootCategoryWeaponFlags.TotalCount;
+        }
+
+        public override int GetFieldsCount()
+        {
+            return (int)SaS2LootCategoryWeaponFields.TotalCount;
         }
     }
 }

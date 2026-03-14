@@ -153,5 +153,96 @@ namespace SaS2.Save
 
             return new Tuple<int, int>(1, 1);
         }
+
+        public int GetRarity(SaS2Item playerItem)
+        {
+            int result = 0;
+            switch (type)
+            {
+                case 5:
+                    result = 2;
+                    if (flags.Contains(0))
+                    {
+                        result = 4;
+                    }
+                    break;
+                case 3:
+                    if (flags.Contains(11))
+                    {
+                        result = 1;
+                    }
+                    if (flags.Contains(12))
+                    {
+                        result = 2;
+                    }
+                    if (flags.Contains(13))
+                    {
+                        result = 3;
+                    }
+                    break;
+                case 4:
+                    if (flags.Contains(0))
+                    {
+                        result = 1;
+                    }
+                    if (flags.Contains(1))
+                    {
+                        result = 2;
+                    }
+                    if (flags.Contains(2))
+                    {
+                        result = 3;
+                    }
+                    if (flags.Contains(3))
+                    {
+                        result = 4;
+                    }
+                    break;
+                case 6:
+                    {
+                        if (playerItem == null || playerItem.artifactData == null)
+                        {
+                            break;
+                        }
+                        int num = 0;
+                        for (int i = 0; i < playerItem.artifactData.value.Length; i++)
+                        {
+                            if (playerItem.artifactData.value[i] > 0f)
+                            {
+                                num++;
+                            }
+                        }
+                        switch (num)
+                        {
+                            case 2:
+                                result = 1;
+                                break;
+                            case 3:
+                                result = 2;
+                                break;
+                            case 4:
+                                result = 3;
+                                break;
+                            case 5:
+                                result = 4;
+                                break;
+                        }
+                        break;
+                    }
+            }
+            return result;
+        }
+
+        public bool HasFlag(int flagIdx)
+        {
+            for (int i = 0; i < flags.Count; i++)
+            {
+                if (flags[i] == flagIdx)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }

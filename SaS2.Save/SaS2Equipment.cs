@@ -177,22 +177,13 @@ namespace SaS2.Save
         public int GetConsumableMax(SaS2Item item)
         {
             SaS2LootDef lootDef = SaS2LootCatalog.lootDefs[item.lootIdx];
-            //if (ColosseumMgr.IsActive && ColosseumMgr.GetReplenishAmount(lootDef, out var amount))
-            //{
-            //    return amount;
-            //}
+
             if (lootDef.lootFields[(int)SaS2LootCategoryConsumableFields.FIELD_REPLENISHABLE].bData)
             {
-                int num = lootDef.lootFields[(int)SaS2LootCategoryConsumableFields.FIELD_BASE_REPLENISH_COUNT].iData +
+                return lootDef.lootFields[(int)SaS2LootCategoryConsumableFields.FIELD_BASE_REPLENISH_COUNT].iData +
                     GetScaledConsumableUpgrade(item.upgrade) * lootDef.lootFields[(int)SaS2LootCategoryConsumableFields.FIELD_EXPANSION_COUNT_PER_TIER].iData;
-
-                //if (NetworkMgr.Instance.HasPartialHealingFlasks() && SaS2LootCatalog.lootDefs[item.lootIdx].name == "health_potion")
-                //{
-                //    num = num * 2 / 3;
-                //}
-
-                return num;
             }
+
             return lootDef.lootFields[(int)SaS2LootCategoryConsumableFields.FIELD_MAX].iData;
         }
     }

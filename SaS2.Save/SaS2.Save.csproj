@@ -4,8 +4,16 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <AssemblyVersion>1.0.1</AssemblyVersion>
-    <FileVersion>1.0.1</FileVersion>
+    <AssemblyVersion>1.1.0</AssemblyVersion>
+    <FileVersion>1.1.0</FileVersion>
+    <Description>Base files of Salt and Sacrifice v2.0.0.1 game save editor</Description>
+    <Title>Salt and Sacrifice save editor</Title>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/spodlesniy/SaS2.Save</RepositoryUrl>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DebugType>none</DebugType>
   </PropertyGroup>
 
 </Project>

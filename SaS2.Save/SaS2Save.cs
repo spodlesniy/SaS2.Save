@@ -122,7 +122,7 @@ namespace SaS2.Save
 
                 if (hashDataFromSave.Length != calculatedHashData.Length)
                 {
-                    throw new InvalidDataException("SaveReader: File hash mismatch.");
+                    throw new InvalidDataException("SaveReader: File hash length mismatch.");
                 }
 
                 for (int k = 0; k < hashDataFromSave.Length; k++)
